@@ -1,0 +1,29 @@
+React Native - framework de desenvolvimento de aplicativos móveis. Usa ferramentas como o reactJs,
+assim, usar 2 linguagens para web e mobile n eh necessario. Com essa framework eh possivel compilar para
+IOS e Android, com um codigo soh
+
+expo - Permite emulacao de aplicativos para Android no seu celular por meio de um QR code
+
+No diretório do projeto:
+
+- assets: onde vc deve armazenar imagens
+- App.js: Arquivo principal, onde o codigo do projeto fica
+
+
+No codigo do App.js;
+
+- A importacao de modulos react e reactnative ocorrem nas duas primeiras linha.
+- StyleSheet: aqui, voce edita o estilo do componente atraves do CSS
+- Text: usado pra qualquer texto
+- View: semelhante a div do HTML. Podemos ter views com estilos diferentes
+
+Transformando funcoes em classes:
+
+Funcoes sao mais leves que classes, porem, com classes podemos mudar mais e adicionar mais coisas
+
+
+
+
+
+State:
+State é o estado da aplicação, por isso, é no state onde as informações da aplicação 

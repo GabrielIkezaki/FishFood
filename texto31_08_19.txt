@@ -1,10 +1,10 @@
-React Native - framework de desenvolvimento de aplicativos móveis. Usa ferramentas como o reactJs,
+React Native - framework de desenvolvimento de aplicativos mï¿½veis. Usa ferramentas como o reactJs,
 assim, usar 2 linguagens para web e mobile n eh necessario. Com essa framework eh possivel compilar para
 IOS e Android, com um codigo soh
 
 expo - Permite emulacao de aplicativos para Android no seu celular por meio de um QR code
 
-No diretório do projeto:
+No diretï¿½rio do projeto:
 
 - assets: onde vc deve armazenar imagens
 - App.js: Arquivo principal, onde o codigo do projeto fica
@@ -26,4 +26,50 @@ Funcoes sao mais leves que classes, porem, com classes podemos mudar mais e adic
 
 
 State:
-State é o estado da aplicação, por isso, é no state onde as informações da aplicação 
+State eh o estado da aplicacao, por isso, eh no state onde as informacoes da aplicacao.
+Se criarmos um contador, e definirmos para ele o estado de 0,
+o estado naquele tempo dele eh 0. Porem, conforme o contador se altera,
+seu estado tambem altera. O state serve para armazenar valores de uma
+determinada aplicacao, que muda conforme seu uso. O que o react faz,
+eh fazer com que as alteracoes armazenadas no state sejam renderizadas
+separadamente, isto eh, apenas as partes que foram modificadas sao alteradas e
+renderizadas e nao a pagina toda, assim, nao precisamos dar refresh
+
+
+O codigo "super" nos permite usar outros codigos relacionados 
+a orientacao a objeto, como o "this". 
+
+this.state = {
+    data: ""
+};
+
+Esse sera o estado inicial de algo. Estamos chamando este algo de data.
+Isso que o estado inicial de data eh vazio.
+
+
+    async meuIp(){
+      this.setState({
+        data:"You can't run away from fish..."
+      });
+      const ip = await fetch("http://httpbin.org/ip");
+      const novoip = await ip.json();
+      this.setState({
+        data: novoip.origin
+      });
+    }
+
+No metodo assincrono, adicionamos para o estado do data para "you cant run away from fish" para 
+o botao, ja que soh iremos mudar o data quando o API estiver respondendo com o IP. Enquanto ele espera,
+o estado do data vai ser de espera. 
+
+A constante ip vai basicamente pegar o valor do URL httpbin.org/ip, que basicamente retorna o IP.
+Depois, armazenamos essa variavel em formato de json, na constante novoip. 
+Usando o setState, vamos mudar o estado de data para o IP obtido, ao inves de "You cant run away from fish". 
+
+<Text style = {styles.ip}>{this.state.data}}</Text>
+
+atraves do estado do data que criamos, estamos mudando o texto em cima do botao para o IP
+
+<Button title = "Fish would like to know your location" onPress={this.meuIp}/>
+
+quando clicarmos no botao, o texto mudara para o valor retornado no meuIp, este sendo, o data.json
